@@ -45,16 +45,30 @@ class Gs2InboxClient(AbstractGs2Client):
         :rtype: gs2_inbox_client.control.CreateInboxResult.CreateInboxResult
         """
         body = { 
-            "serviceClass": request.get_service_class(),
             "name": request.get_name(),
+            "serviceClass": request.get_service_class(),
         }
 
-        if request.get_cooperation_url() is not None:
-            body["cooperationUrl"] = request.get_cooperation_url()
         if request.get_auto_delete() is not None:
             body["autoDelete"] = request.get_auto_delete()
+        if request.get_cooperation_url() is not None:
+            body["cooperationUrl"] = request.get_cooperation_url()
+        if request.get_receive_message_trigger_script() is not None:
+            body["receiveMessageTriggerScript"] = request.get_receive_message_trigger_script()
+        if request.get_receive_message_done_trigger_script() is not None:
+            body["receiveMessageDoneTriggerScript"] = request.get_receive_message_done_trigger_script()
+        if request.get_read_message_trigger_script() is not None:
+            body["readMessageTriggerScript"] = request.get_read_message_trigger_script()
+        if request.get_read_message_done_trigger_script() is not None:
+            body["readMessageDoneTriggerScript"] = request.get_read_message_done_trigger_script()
+        if request.get_delete_message_trigger_script() is not None:
+            body["deleteMessageTriggerScript"] = request.get_delete_message_trigger_script()
+        if request.get_delete_message_done_trigger_script() is not None:
+            body["deleteMessageDoneTriggerScript"] = request.get_delete_message_done_trigger_script()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.CreateInboxRequest import CreateInboxRequest
 
         from gs2_inbox_client.control.CreateInboxResult import CreateInboxResult
@@ -83,10 +97,12 @@ class Gs2InboxClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.DeleteInboxRequest import DeleteInboxRequest
 
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "",
             service=self.ENDPOINT,
             module=DeleteInboxRequest.Constant.MODULE,
             function=DeleteInboxRequest.Constant.FUNCTION,
@@ -113,10 +129,12 @@ class Gs2InboxClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.DeleteMessageRequest import DeleteMessageRequest
 
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message/" + str(("null" if request.get_message_id() is None else request.get_message_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message/" + str(("null" if request.get_message_id() is None or request.get_message_id() == "" else request.get_message_id())) + "",
             service=self.ENDPOINT,
             module=DeleteMessageRequest.Constant.MODULE,
             function=DeleteMessageRequest.Constant.FUNCTION,
@@ -145,10 +163,12 @@ class Gs2InboxClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.DeleteMessagesRequest import DeleteMessagesRequest
 
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message/multiple",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message/multiple",
             service=self.ENDPOINT,
             module=DeleteMessagesRequest.Constant.MODULE,
             function=DeleteMessagesRequest.Constant.FUNCTION,
@@ -177,6 +197,8 @@ class Gs2InboxClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.DescribeInboxRequest import DescribeInboxRequest
 
         from gs2_inbox_client.control.DescribeInboxResult import DescribeInboxResult
@@ -213,11 +235,13 @@ class Gs2InboxClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.DescribeMessageRequest import DescribeMessageRequest
 
         from gs2_inbox_client.control.DescribeMessageResult import DescribeMessageResult
         return DescribeMessageResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message",
             service=self.ENDPOINT,
             module=DescribeMessageRequest.Constant.MODULE,
             function=DescribeMessageRequest.Constant.FUNCTION,
@@ -242,6 +266,8 @@ class Gs2InboxClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.DescribeServiceClassRequest import DescribeServiceClassRequest
 
         from gs2_inbox_client.control.DescribeServiceClassResult import DescribeServiceClassResult
@@ -271,11 +297,13 @@ class Gs2InboxClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.GetInboxRequest import GetInboxRequest
 
         from gs2_inbox_client.control.GetInboxResult import GetInboxResult
         return GetInboxResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "",
             service=self.ENDPOINT,
             module=GetInboxRequest.Constant.MODULE,
             function=GetInboxRequest.Constant.FUNCTION,
@@ -300,11 +328,13 @@ class Gs2InboxClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.GetInboxStatusRequest import GetInboxStatusRequest
 
         from gs2_inbox_client.control.GetInboxStatusResult import GetInboxStatusResult
         return GetInboxStatusResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/status",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/status",
             service=self.ENDPOINT,
             module=GetInboxStatusRequest.Constant.MODULE,
             function=GetInboxStatusRequest.Constant.FUNCTION,
@@ -331,11 +361,13 @@ class Gs2InboxClient(AbstractGs2Client):
         }
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.GetMessageRequest import GetMessageRequest
 
         from gs2_inbox_client.control.GetMessageResult import GetMessageResult
         return GetMessageResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message/" + str(("null" if request.get_message_id() is None else request.get_message_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message/" + str(("null" if request.get_message_id() is None or request.get_message_id() == "" else request.get_message_id())) + "",
             service=self.ENDPOINT,
             module=GetMessageRequest.Constant.MODULE,
             function=GetMessageRequest.Constant.FUNCTION,
@@ -363,11 +395,13 @@ class Gs2InboxClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.ReadMessageRequest import ReadMessageRequest
 
         from gs2_inbox_client.control.ReadMessageResult import ReadMessageResult
         return ReadMessageResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message/" + str(("null" if request.get_message_id() is None else request.get_message_id())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message/" + str(("null" if request.get_message_id() is None or request.get_message_id() == "" else request.get_message_id())) + "",
             service=self.ENDPOINT,
             module=ReadMessageRequest.Constant.MODULE,
             function=ReadMessageRequest.Constant.FUNCTION,
@@ -407,11 +441,13 @@ class Gs2InboxClient(AbstractGs2Client):
         headers = { 
             "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.ReadMessagesRequest import ReadMessagesRequest
 
         from gs2_inbox_client.control.ReadMessagesResult import ReadMessagesResult
         return ReadMessagesResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message/multiple",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message/multiple",
             service=self.ENDPOINT,
             module=ReadMessagesRequest.Constant.MODULE,
             function=ReadMessagesRequest.Constant.FUNCTION,
@@ -434,19 +470,21 @@ class Gs2InboxClient(AbstractGs2Client):
         :rtype: gs2_inbox_client.control.SendMessageResult.SendMessageResult
         """
         body = { 
-            "message": request.get_message(),
             "userId": request.get_user_id(),
+            "message": request.get_message(),
         }
 
         if request.get_cooperation() is not None:
             body["cooperation"] = request.get_cooperation()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.SendMessageRequest import SendMessageRequest
 
         from gs2_inbox_client.control.SendMessageResult import SendMessageResult
         return SendMessageResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "/message",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "/message",
             service=self.ENDPOINT,
             module=SendMessageRequest.Constant.MODULE,
             function=SendMessageRequest.Constant.FUNCTION,
@@ -472,13 +510,27 @@ class Gs2InboxClient(AbstractGs2Client):
             body["serviceClass"] = request.get_service_class()
         if request.get_cooperation_url() is not None:
             body["cooperationUrl"] = request.get_cooperation_url()
+        if request.get_receive_message_trigger_script() is not None:
+            body["receiveMessageTriggerScript"] = request.get_receive_message_trigger_script()
+        if request.get_receive_message_done_trigger_script() is not None:
+            body["receiveMessageDoneTriggerScript"] = request.get_receive_message_done_trigger_script()
+        if request.get_read_message_trigger_script() is not None:
+            body["readMessageTriggerScript"] = request.get_read_message_trigger_script()
+        if request.get_read_message_done_trigger_script() is not None:
+            body["readMessageDoneTriggerScript"] = request.get_read_message_done_trigger_script()
+        if request.get_delete_message_trigger_script() is not None:
+            body["deleteMessageTriggerScript"] = request.get_delete_message_trigger_script()
+        if request.get_delete_message_done_trigger_script() is not None:
+            body["deleteMessageDoneTriggerScript"] = request.get_delete_message_done_trigger_script()
         headers = { 
         }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_inbox_client.control.UpdateInboxRequest import UpdateInboxRequest
 
         from gs2_inbox_client.control.UpdateInboxResult import UpdateInboxResult
         return UpdateInboxResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None else request.get_inbox_name())) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/inbox/" + str(("null" if request.get_inbox_name() is None or request.get_inbox_name() == "" else request.get_inbox_name())) + "",
             service=self.ENDPOINT,
             module=UpdateInboxRequest.Constant.MODULE,
             function=UpdateInboxRequest.Constant.FUNCTION,

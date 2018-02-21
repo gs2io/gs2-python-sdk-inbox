@@ -32,13 +32,13 @@ class SendMessageRequest(Gs2BasicRequest):
         super(SendMessageRequest, self).__init__(params)
         if params is None:
             self.__inbox_name = None
-            self.__message = None
             self.__user_id = None
+            self.__message = None
             self.__cooperation = None
         else:
             self.set_inbox_name(params['inboxName'] if 'inboxName' in params.keys() else None)
-            self.set_message(params['message'] if 'message' in params.keys() else None)
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
+            self.set_message(params['message'] if 'message' in params.keys() else None)
             self.set_cooperation(params['cooperation'] if 'cooperation' in params.keys() else None)
 
     def get_inbox_name(self):
@@ -68,33 +68,6 @@ class SendMessageRequest(Gs2BasicRequest):
         self.set_inbox_name(inbox_name)
         return self
 
-    def get_message(self):
-        """
-        送信するメッセージ本文を取得
-        :return: 送信するメッセージ本文
-        :rtype: unicode
-        """
-        return self.__message
-
-    def set_message(self, message):
-        """
-        送信するメッセージ本文を設定
-        :param message: 送信するメッセージ本文
-        :type message: unicode
-        """
-        self.__message = message
-
-    def with_message(self, message):
-        """
-        送信するメッセージ本文を設定
-        :param message: 送信するメッセージ本文
-        :type message: unicode
-        :return: this
-        :rtype: SendMessageRequest
-        """
-        self.set_message(message)
-        return self
-
     def get_user_id(self):
         """
         メッセージを送信する相手のユーザIDを取得
@@ -120,6 +93,33 @@ class SendMessageRequest(Gs2BasicRequest):
         :rtype: SendMessageRequest
         """
         self.set_user_id(user_id)
+        return self
+
+    def get_message(self):
+        """
+        送信するメッセージ本文を取得
+        :return: 送信するメッセージ本文
+        :rtype: unicode
+        """
+        return self.__message
+
+    def set_message(self, message):
+        """
+        送信するメッセージ本文を設定
+        :param message: 送信するメッセージ本文
+        :type message: unicode
+        """
+        self.__message = message
+
+    def with_message(self, message):
+        """
+        送信するメッセージ本文を設定
+        :param message: 送信するメッセージ本文
+        :type message: unicode
+        :return: this
+        :rtype: SendMessageRequest
+        """
+        self.set_message(message)
         return self
 
     def get_cooperation(self):

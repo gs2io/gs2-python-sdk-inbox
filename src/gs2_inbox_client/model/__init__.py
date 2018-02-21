@@ -1,2 +1,2 @@
-from Message import Message
 from Inbox import Inbox
+from Message import Message

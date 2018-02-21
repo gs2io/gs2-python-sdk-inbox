@@ -34,10 +34,22 @@ class UpdateInboxRequest(Gs2BasicRequest):
             self.__inbox_name = None
             self.__service_class = None
             self.__cooperation_url = None
+            self.__receive_message_trigger_script = None
+            self.__receive_message_done_trigger_script = None
+            self.__read_message_trigger_script = None
+            self.__read_message_done_trigger_script = None
+            self.__delete_message_trigger_script = None
+            self.__delete_message_done_trigger_script = None
         else:
             self.set_inbox_name(params['inboxName'] if 'inboxName' in params.keys() else None)
             self.set_service_class(params['serviceClass'] if 'serviceClass' in params.keys() else None)
             self.set_cooperation_url(params['cooperationUrl'] if 'cooperationUrl' in params.keys() else None)
+            self.set_receive_message_trigger_script(params['receiveMessageTriggerScript'] if 'receiveMessageTriggerScript' in params.keys() else None)
+            self.set_receive_message_done_trigger_script(params['receiveMessageDoneTriggerScript'] if 'receiveMessageDoneTriggerScript' in params.keys() else None)
+            self.set_read_message_trigger_script(params['readMessageTriggerScript'] if 'readMessageTriggerScript' in params.keys() else None)
+            self.set_read_message_done_trigger_script(params['readMessageDoneTriggerScript'] if 'readMessageDoneTriggerScript' in params.keys() else None)
+            self.set_delete_message_trigger_script(params['deleteMessageTriggerScript'] if 'deleteMessageTriggerScript' in params.keys() else None)
+            self.set_delete_message_done_trigger_script(params['deleteMessageDoneTriggerScript'] if 'deleteMessageDoneTriggerScript' in params.keys() else None)
 
     def get_inbox_name(self):
         """
@@ -118,4 +130,166 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :rtype: UpdateInboxRequest
         """
         self.set_cooperation_url(cooperation_url)
+        return self
+
+    def get_receive_message_trigger_script(self):
+        """
+        メッセージ受信時 に実行されるGS2-Scriptを取得
+        :return: メッセージ受信時 に実行されるGS2-Script
+        :rtype: unicode
+        """
+        return self.__receive_message_trigger_script
+
+    def set_receive_message_trigger_script(self, receive_message_trigger_script):
+        """
+        メッセージ受信時 に実行されるGS2-Scriptを設定
+        :param receive_message_trigger_script: メッセージ受信時 に実行されるGS2-Script
+        :type receive_message_trigger_script: unicode
+        """
+        self.__receive_message_trigger_script = receive_message_trigger_script
+
+    def with_receive_message_trigger_script(self, receive_message_trigger_script):
+        """
+        メッセージ受信時 に実行されるGS2-Scriptを設定
+        :param receive_message_trigger_script: メッセージ受信時 に実行されるGS2-Script
+        :type receive_message_trigger_script: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_receive_message_trigger_script(receive_message_trigger_script)
+        return self
+
+    def get_receive_message_done_trigger_script(self):
+        """
+        メッセージ受信完了時 に実行されるGS2-Scriptを取得
+        :return: メッセージ受信完了時 に実行されるGS2-Script
+        :rtype: unicode
+        """
+        return self.__receive_message_done_trigger_script
+
+    def set_receive_message_done_trigger_script(self, receive_message_done_trigger_script):
+        """
+        メッセージ受信完了時 に実行されるGS2-Scriptを設定
+        :param receive_message_done_trigger_script: メッセージ受信完了時 に実行されるGS2-Script
+        :type receive_message_done_trigger_script: unicode
+        """
+        self.__receive_message_done_trigger_script = receive_message_done_trigger_script
+
+    def with_receive_message_done_trigger_script(self, receive_message_done_trigger_script):
+        """
+        メッセージ受信完了時 に実行されるGS2-Scriptを設定
+        :param receive_message_done_trigger_script: メッセージ受信完了時 に実行されるGS2-Script
+        :type receive_message_done_trigger_script: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_receive_message_done_trigger_script(receive_message_done_trigger_script)
+        return self
+
+    def get_read_message_trigger_script(self):
+        """
+        メッセージ開封時 に実行されるGS2-Scriptを取得
+        :return: メッセージ開封時 に実行されるGS2-Script
+        :rtype: unicode
+        """
+        return self.__read_message_trigger_script
+
+    def set_read_message_trigger_script(self, read_message_trigger_script):
+        """
+        メッセージ開封時 に実行されるGS2-Scriptを設定
+        :param read_message_trigger_script: メッセージ開封時 に実行されるGS2-Script
+        :type read_message_trigger_script: unicode
+        """
+        self.__read_message_trigger_script = read_message_trigger_script
+
+    def with_read_message_trigger_script(self, read_message_trigger_script):
+        """
+        メッセージ開封時 に実行されるGS2-Scriptを設定
+        :param read_message_trigger_script: メッセージ開封時 に実行されるGS2-Script
+        :type read_message_trigger_script: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_read_message_trigger_script(read_message_trigger_script)
+        return self
+
+    def get_read_message_done_trigger_script(self):
+        """
+        メッセージ開封完了時 に実行されるGS2-Scriptを取得
+        :return: メッセージ開封完了時 に実行されるGS2-Script
+        :rtype: unicode
+        """
+        return self.__read_message_done_trigger_script
+
+    def set_read_message_done_trigger_script(self, read_message_done_trigger_script):
+        """
+        メッセージ開封完了時 に実行されるGS2-Scriptを設定
+        :param read_message_done_trigger_script: メッセージ開封完了時 に実行されるGS2-Script
+        :type read_message_done_trigger_script: unicode
+        """
+        self.__read_message_done_trigger_script = read_message_done_trigger_script
+
+    def with_read_message_done_trigger_script(self, read_message_done_trigger_script):
+        """
+        メッセージ開封完了時 に実行されるGS2-Scriptを設定
+        :param read_message_done_trigger_script: メッセージ開封完了時 に実行されるGS2-Script
+        :type read_message_done_trigger_script: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_read_message_done_trigger_script(read_message_done_trigger_script)
+        return self
+
+    def get_delete_message_trigger_script(self):
+        """
+        メッセージ削除時 に実行されるGS2-Scriptを取得
+        :return: メッセージ削除時 に実行されるGS2-Script
+        :rtype: unicode
+        """
+        return self.__delete_message_trigger_script
+
+    def set_delete_message_trigger_script(self, delete_message_trigger_script):
+        """
+        メッセージ削除時 に実行されるGS2-Scriptを設定
+        :param delete_message_trigger_script: メッセージ削除時 に実行されるGS2-Script
+        :type delete_message_trigger_script: unicode
+        """
+        self.__delete_message_trigger_script = delete_message_trigger_script
+
+    def with_delete_message_trigger_script(self, delete_message_trigger_script):
+        """
+        メッセージ削除時 に実行されるGS2-Scriptを設定
+        :param delete_message_trigger_script: メッセージ削除時 に実行されるGS2-Script
+        :type delete_message_trigger_script: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_delete_message_trigger_script(delete_message_trigger_script)
+        return self
+
+    def get_delete_message_done_trigger_script(self):
+        """
+        メッセージ削除完了時 に実行されるGS2-Scriptを取得
+        :return: メッセージ削除完了時 に実行されるGS2-Script
+        :rtype: unicode
+        """
+        return self.__delete_message_done_trigger_script
+
+    def set_delete_message_done_trigger_script(self, delete_message_done_trigger_script):
+        """
+        メッセージ削除完了時 に実行されるGS2-Scriptを設定
+        :param delete_message_done_trigger_script: メッセージ削除完了時 に実行されるGS2-Script
+        :type delete_message_done_trigger_script: unicode
+        """
+        self.__delete_message_done_trigger_script = delete_message_done_trigger_script
+
+    def with_delete_message_done_trigger_script(self, delete_message_done_trigger_script):
+        """
+        メッセージ削除完了時 に実行されるGS2-Scriptを設定
+        :param delete_message_done_trigger_script: メッセージ削除完了時 に実行されるGS2-Script
+        :type delete_message_done_trigger_script: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_delete_message_done_trigger_script(delete_message_done_trigger_script)
         return self
