@@ -51,7 +51,7 @@ class DeleteMessagesRequest(Gs2UserRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
-        if not isinstance(inbox_name, unicode):
+        if inbox_name and not isinstance(inbox_name, unicode):
             raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
@@ -80,7 +80,7 @@ class DeleteMessagesRequest(Gs2UserRequest):
         :param message_ids: 削除するメッセージのメッセージIDのリストを指定します。
         :type message_ids: unicode
         """
-        if not isinstance(message_ids, unicode):
+        if message_ids and not isinstance(message_ids, unicode):
             raise TypeError(type(message_ids))
         self.__message_ids = message_ids
 
