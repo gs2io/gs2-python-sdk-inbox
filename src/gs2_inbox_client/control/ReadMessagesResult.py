@@ -25,16 +25,13 @@ class ReadMessagesResult(object):
         :type response: レスポンスボディ
         :type response: dict
         """
-        
         self.__items = list(
             map(
                 lambda data:
-                Message(data)
-                ,
+                Message(data),
                 response['items']
             )
         )
-        
         self.__cooperation_response = unicode(response['cooperationResponse']) if 'cooperationResponse' in response.keys() and response['cooperationResponse'] is not None else None
 
     def get_items(self):
@@ -59,9 +56,7 @@ class ReadMessagesResult(object):
         :return: 辞書配列
         :rtype: dict
         """
-        return { 
+        return {
             'items': map(lambda item: item.to_dict(), self.__items),
-        
             'cooperationResponse': self.__cooperation_response,
-        
         }

@@ -32,13 +32,19 @@ class SendMessageRequest(Gs2BasicRequest):
         super(SendMessageRequest, self).__init__(params)
         if params is None:
             self.__inbox_name = None
-            self.__user_id = None
-            self.__message = None
-            self.__cooperation = None
         else:
             self.set_inbox_name(params['inboxName'] if 'inboxName' in params.keys() else None)
+        if params is None:
+            self.__user_id = None
+        else:
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
+        if params is None:
+            self.__message = None
+        else:
             self.set_message(params['message'] if 'message' in params.keys() else None)
+        if params is None:
+            self.__cooperation = None
+        else:
             self.set_cooperation(params['cooperation'] if 'cooperation' in params.keys() else None)
 
     def get_inbox_name(self):
@@ -55,6 +61,8 @@ class SendMessageRequest(Gs2BasicRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
+        if not isinstance(inbox_name, unicode):
+            raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
     def with_inbox_name(self, inbox_name):
@@ -82,6 +90,8 @@ class SendMessageRequest(Gs2BasicRequest):
         :param user_id: メッセージを送信する相手のユーザID
         :type user_id: unicode
         """
+        if not isinstance(user_id, unicode):
+            raise TypeError(type(user_id))
         self.__user_id = user_id
 
     def with_user_id(self, user_id):
@@ -109,6 +119,8 @@ class SendMessageRequest(Gs2BasicRequest):
         :param message: 送信するメッセージ本文
         :type message: unicode
         """
+        if not isinstance(message, unicode):
+            raise TypeError(type(message))
         self.__message = message
 
     def with_message(self, message):
@@ -136,6 +148,8 @@ class SendMessageRequest(Gs2BasicRequest):
         :param cooperation: true を設定すると、メッセージ開封時に受信ボックスに指定された連携用URLにメッセージIDが通知されます
         :type cooperation: bool
         """
+        if not isinstance(cooperation, bool):
+            raise TypeError(type(cooperation))
         self.__cooperation = cooperation
 
     def with_cooperation(self, cooperation):

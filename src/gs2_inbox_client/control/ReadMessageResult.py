@@ -25,9 +25,7 @@ class ReadMessageResult(object):
         :type response: レスポンスボディ
         :type response: dict
         """
-        
         self.__item = Message(response['item']) if 'item' in response.keys() and response['item'] is not None else None
-        
         self.__cooperation_response = unicode(response['cooperationResponse']) if 'cooperationResponse' in response.keys() and response['cooperationResponse'] is not None else None
 
     def get_item(self):
@@ -52,9 +50,7 @@ class ReadMessageResult(object):
         :return: 辞書配列
         :rtype: dict
         """
-        return { 
+        return {
             'item': self.__item.to_dict(),
-        
             'cooperationResponse': self.__cooperation_response,
-        
         }

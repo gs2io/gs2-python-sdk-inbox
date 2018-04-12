@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class Message(object):
 
     def __init__(self, params=None):
@@ -33,7 +34,6 @@ class Message(object):
             self.set_cooperation(params['cooperation'] if 'cooperation' in params.keys() else None)
             self.set_read(params['read'] if 'read' in params.keys() else None)
             self.set_date(params['date'] if 'date' in params.keys() else None)
-
 
     def get_message_id(self):
         """
@@ -148,7 +148,7 @@ class Message(object):
         self.__date = date
 
     def to_dict(self):
-        return { 
+        return {
             "messageId": self.__message_id,
             "inboxId": self.__inbox_id,
             "userId": self.__user_id,

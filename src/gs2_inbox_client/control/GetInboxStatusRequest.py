@@ -49,6 +49,8 @@ class GetInboxStatusRequest(Gs2BasicRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
+        if not isinstance(inbox_name, unicode):
+            raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
     def with_inbox_name(self, inbox_name):

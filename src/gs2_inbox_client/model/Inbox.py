@@ -14,6 +14,7 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+
 class Inbox(object):
 
     def __init__(self, params=None):
@@ -49,7 +50,6 @@ class Inbox(object):
             self.set_delete_message_done_trigger_script(params['deleteMessageDoneTriggerScript'] if 'deleteMessageDoneTriggerScript' in params.keys() else None)
             self.set_create_at(params['createAt'] if 'createAt' in params.keys() else None)
             self.set_update_at(params['updateAt'] if 'updateAt' in params.keys() else None)
-
 
     def get_inbox_id(self):
         """
@@ -292,7 +292,7 @@ class Inbox(object):
         self.__update_at = update_at
 
     def to_dict(self):
-        return { 
+        return {
             "inboxId": self.__inbox_id,
             "ownerId": self.__owner_id,
             "name": self.__name,

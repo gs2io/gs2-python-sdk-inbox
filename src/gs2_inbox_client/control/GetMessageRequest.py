@@ -32,9 +32,11 @@ class GetMessageRequest(Gs2BasicRequest):
         super(GetMessageRequest, self).__init__(params)
         if params is None:
             self.__inbox_name = None
-            self.__message_id = None
         else:
             self.set_inbox_name(params['inboxName'] if 'inboxName' in params.keys() else None)
+        if params is None:
+            self.__message_id = None
+        else:
             self.set_message_id(params['messageId'] if 'messageId' in params.keys() else None)
 
     def get_inbox_name(self):
@@ -51,6 +53,8 @@ class GetMessageRequest(Gs2BasicRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
+        if not isinstance(inbox_name, unicode):
+            raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
     def with_inbox_name(self, inbox_name):
@@ -78,6 +82,8 @@ class GetMessageRequest(Gs2BasicRequest):
         :param message_id: 開封するメッセージIDを指定します。
         :type message_id: unicode
         """
+        if not isinstance(message_id, unicode):
+            raise TypeError(type(message_id))
         self.__message_id = message_id
 
     def with_message_id(self, message_id):

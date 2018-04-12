@@ -32,23 +32,43 @@ class UpdateInboxRequest(Gs2BasicRequest):
         super(UpdateInboxRequest, self).__init__(params)
         if params is None:
             self.__inbox_name = None
-            self.__service_class = None
-            self.__cooperation_url = None
-            self.__receive_message_trigger_script = None
-            self.__receive_message_done_trigger_script = None
-            self.__read_message_trigger_script = None
-            self.__read_message_done_trigger_script = None
-            self.__delete_message_trigger_script = None
-            self.__delete_message_done_trigger_script = None
         else:
             self.set_inbox_name(params['inboxName'] if 'inboxName' in params.keys() else None)
+        if params is None:
+            self.__description = None
+        else:
+            self.set_description(params['description'] if 'description' in params.keys() else None)
+        if params is None:
+            self.__service_class = None
+        else:
             self.set_service_class(params['serviceClass'] if 'serviceClass' in params.keys() else None)
+        if params is None:
+            self.__cooperation_url = None
+        else:
             self.set_cooperation_url(params['cooperationUrl'] if 'cooperationUrl' in params.keys() else None)
+        if params is None:
+            self.__receive_message_trigger_script = None
+        else:
             self.set_receive_message_trigger_script(params['receiveMessageTriggerScript'] if 'receiveMessageTriggerScript' in params.keys() else None)
+        if params is None:
+            self.__receive_message_done_trigger_script = None
+        else:
             self.set_receive_message_done_trigger_script(params['receiveMessageDoneTriggerScript'] if 'receiveMessageDoneTriggerScript' in params.keys() else None)
+        if params is None:
+            self.__read_message_trigger_script = None
+        else:
             self.set_read_message_trigger_script(params['readMessageTriggerScript'] if 'readMessageTriggerScript' in params.keys() else None)
+        if params is None:
+            self.__read_message_done_trigger_script = None
+        else:
             self.set_read_message_done_trigger_script(params['readMessageDoneTriggerScript'] if 'readMessageDoneTriggerScript' in params.keys() else None)
+        if params is None:
+            self.__delete_message_trigger_script = None
+        else:
             self.set_delete_message_trigger_script(params['deleteMessageTriggerScript'] if 'deleteMessageTriggerScript' in params.keys() else None)
+        if params is None:
+            self.__delete_message_done_trigger_script = None
+        else:
             self.set_delete_message_done_trigger_script(params['deleteMessageDoneTriggerScript'] if 'deleteMessageDoneTriggerScript' in params.keys() else None)
 
     def get_inbox_name(self):
@@ -65,6 +85,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
+        if not isinstance(inbox_name, unicode):
+            raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
     def with_inbox_name(self, inbox_name):
@@ -76,6 +98,35 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :rtype: UpdateInboxRequest
         """
         self.set_inbox_name(inbox_name)
+        return self
+
+    def get_description(self):
+        """
+        説明文を取得
+        :return: 説明文
+        :rtype: unicode
+        """
+        return self.__description
+
+    def set_description(self, description):
+        """
+        説明文を設定
+        :param description: 説明文
+        :type description: unicode
+        """
+        if not isinstance(description, unicode):
+            raise TypeError(type(description))
+        self.__description = description
+
+    def with_description(self, description):
+        """
+        説明文を設定
+        :param description: 説明文
+        :type description: unicode
+        :return: this
+        :rtype: UpdateInboxRequest
+        """
+        self.set_description(description)
         return self
 
     def get_service_class(self):
@@ -92,6 +143,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param service_class: サービスクラス
         :type service_class: unicode
         """
+        if not isinstance(service_class, unicode):
+            raise TypeError(type(service_class))
         self.__service_class = service_class
 
     def with_service_class(self, service_class):
@@ -107,24 +160,26 @@ class UpdateInboxRequest(Gs2BasicRequest):
 
     def get_cooperation_url(self):
         """
-        開封時通知設定が有効な場合に通知するURLを取得
-        :return: 開封時通知設定が有効な場合に通知するURL
+        メッセージの開封通知先URLを取得
+        :return: メッセージの開封通知先URL
         :rtype: unicode
         """
         return self.__cooperation_url
 
     def set_cooperation_url(self, cooperation_url):
         """
-        開封時通知設定が有効な場合に通知するURLを設定
-        :param cooperation_url: 開封時通知設定が有効な場合に通知するURL
+        メッセージの開封通知先URLを設定
+        :param cooperation_url: メッセージの開封通知先URL
         :type cooperation_url: unicode
         """
+        if not isinstance(cooperation_url, unicode):
+            raise TypeError(type(cooperation_url))
         self.__cooperation_url = cooperation_url
 
     def with_cooperation_url(self, cooperation_url):
         """
-        開封時通知設定が有効な場合に通知するURLを設定
-        :param cooperation_url: 開封時通知設定が有効な場合に通知するURL
+        メッセージの開封通知先URLを設定
+        :param cooperation_url: メッセージの開封通知先URL
         :type cooperation_url: unicode
         :return: this
         :rtype: UpdateInboxRequest
@@ -146,6 +201,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param receive_message_trigger_script: メッセージ受信時 に実行されるGS2-Script
         :type receive_message_trigger_script: unicode
         """
+        if not isinstance(receive_message_trigger_script, unicode):
+            raise TypeError(type(receive_message_trigger_script))
         self.__receive_message_trigger_script = receive_message_trigger_script
 
     def with_receive_message_trigger_script(self, receive_message_trigger_script):
@@ -173,6 +230,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param receive_message_done_trigger_script: メッセージ受信完了時 に実行されるGS2-Script
         :type receive_message_done_trigger_script: unicode
         """
+        if not isinstance(receive_message_done_trigger_script, unicode):
+            raise TypeError(type(receive_message_done_trigger_script))
         self.__receive_message_done_trigger_script = receive_message_done_trigger_script
 
     def with_receive_message_done_trigger_script(self, receive_message_done_trigger_script):
@@ -200,6 +259,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param read_message_trigger_script: メッセージ開封時 に実行されるGS2-Script
         :type read_message_trigger_script: unicode
         """
+        if not isinstance(read_message_trigger_script, unicode):
+            raise TypeError(type(read_message_trigger_script))
         self.__read_message_trigger_script = read_message_trigger_script
 
     def with_read_message_trigger_script(self, read_message_trigger_script):
@@ -227,6 +288,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param read_message_done_trigger_script: メッセージ開封完了時 に実行されるGS2-Script
         :type read_message_done_trigger_script: unicode
         """
+        if not isinstance(read_message_done_trigger_script, unicode):
+            raise TypeError(type(read_message_done_trigger_script))
         self.__read_message_done_trigger_script = read_message_done_trigger_script
 
     def with_read_message_done_trigger_script(self, read_message_done_trigger_script):
@@ -254,6 +317,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param delete_message_trigger_script: メッセージ削除時 に実行されるGS2-Script
         :type delete_message_trigger_script: unicode
         """
+        if not isinstance(delete_message_trigger_script, unicode):
+            raise TypeError(type(delete_message_trigger_script))
         self.__delete_message_trigger_script = delete_message_trigger_script
 
     def with_delete_message_trigger_script(self, delete_message_trigger_script):
@@ -281,6 +346,8 @@ class UpdateInboxRequest(Gs2BasicRequest):
         :param delete_message_done_trigger_script: メッセージ削除完了時 に実行されるGS2-Script
         :type delete_message_done_trigger_script: unicode
         """
+        if not isinstance(delete_message_done_trigger_script, unicode):
+            raise TypeError(type(delete_message_done_trigger_script))
         self.__delete_message_done_trigger_script = delete_message_done_trigger_script
 
     def with_delete_message_done_trigger_script(self, delete_message_done_trigger_script):
