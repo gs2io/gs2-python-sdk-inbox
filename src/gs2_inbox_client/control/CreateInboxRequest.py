@@ -89,7 +89,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param name: 受信ボックス名
         :type name: unicode
         """
-        if name and not isinstance(name, unicode):
+        if name and not (isinstance(name, str) or isinstance(name, unicode)):
             raise TypeError(type(name))
         self.__name = name
 
@@ -118,7 +118,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
-        if description and not isinstance(description, unicode):
+        if description and not (isinstance(description, str) or isinstance(description, unicode)):
             raise TypeError(type(description))
         self.__description = description
 
@@ -147,7 +147,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param service_class: サービスクラス
         :type service_class: unicode
         """
-        if service_class and not isinstance(service_class, unicode):
+        if service_class and not (isinstance(service_class, str) or isinstance(service_class, unicode)):
             raise TypeError(type(service_class))
         self.__service_class = service_class
 
@@ -205,7 +205,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param cooperation_url: メッセージの開封通知先URL
         :type cooperation_url: unicode
         """
-        if cooperation_url and not isinstance(cooperation_url, unicode):
+        if cooperation_url and not (isinstance(cooperation_url, str) or isinstance(cooperation_url, unicode)):
             raise TypeError(type(cooperation_url))
         self.__cooperation_url = cooperation_url
 
@@ -234,7 +234,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param receive_message_trigger_script: メッセージ受信時 に実行されるGS2-Script
         :type receive_message_trigger_script: unicode
         """
-        if receive_message_trigger_script and not isinstance(receive_message_trigger_script, unicode):
+        if receive_message_trigger_script and not (isinstance(receive_message_trigger_script, str) or isinstance(receive_message_trigger_script, unicode)):
             raise TypeError(type(receive_message_trigger_script))
         self.__receive_message_trigger_script = receive_message_trigger_script
 
@@ -263,7 +263,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param receive_message_done_trigger_script: メッセージ受信完了時 に実行されるGS2-Script
         :type receive_message_done_trigger_script: unicode
         """
-        if receive_message_done_trigger_script and not isinstance(receive_message_done_trigger_script, unicode):
+        if receive_message_done_trigger_script and not (isinstance(receive_message_done_trigger_script, str) or isinstance(receive_message_done_trigger_script, unicode)):
             raise TypeError(type(receive_message_done_trigger_script))
         self.__receive_message_done_trigger_script = receive_message_done_trigger_script
 
@@ -292,7 +292,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param read_message_trigger_script: メッセージ開封時 に実行されるGS2-Script
         :type read_message_trigger_script: unicode
         """
-        if read_message_trigger_script and not isinstance(read_message_trigger_script, unicode):
+        if read_message_trigger_script and not (isinstance(read_message_trigger_script, str) or isinstance(read_message_trigger_script, unicode)):
             raise TypeError(type(read_message_trigger_script))
         self.__read_message_trigger_script = read_message_trigger_script
 
@@ -321,7 +321,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param read_message_done_trigger_script: メッセージ開封完了時 に実行されるGS2-Script
         :type read_message_done_trigger_script: unicode
         """
-        if read_message_done_trigger_script and not isinstance(read_message_done_trigger_script, unicode):
+        if read_message_done_trigger_script and not (isinstance(read_message_done_trigger_script, str) or isinstance(read_message_done_trigger_script, unicode)):
             raise TypeError(type(read_message_done_trigger_script))
         self.__read_message_done_trigger_script = read_message_done_trigger_script
 
@@ -350,7 +350,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param delete_message_trigger_script: メッセージ削除時 に実行されるGS2-Script
         :type delete_message_trigger_script: unicode
         """
-        if delete_message_trigger_script and not isinstance(delete_message_trigger_script, unicode):
+        if delete_message_trigger_script and not (isinstance(delete_message_trigger_script, str) or isinstance(delete_message_trigger_script, unicode)):
             raise TypeError(type(delete_message_trigger_script))
         self.__delete_message_trigger_script = delete_message_trigger_script
 
@@ -379,7 +379,7 @@ class CreateInboxRequest(Gs2BasicRequest):
         :param delete_message_done_trigger_script: メッセージ削除完了時 に実行されるGS2-Script
         :type delete_message_done_trigger_script: unicode
         """
-        if delete_message_done_trigger_script and not isinstance(delete_message_done_trigger_script, unicode):
+        if delete_message_done_trigger_script and not (isinstance(delete_message_done_trigger_script, str) or isinstance(delete_message_done_trigger_script, unicode)):
             raise TypeError(type(delete_message_done_trigger_script))
         self.__delete_message_done_trigger_script = delete_message_done_trigger_script
 

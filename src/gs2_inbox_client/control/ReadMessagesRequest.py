@@ -51,7 +51,7 @@ class ReadMessagesRequest(Gs2UserRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
-        if inbox_name and not isinstance(inbox_name, unicode):
+        if _inbox_name and not (isinstance(_inbox_name, str) or isinstance(_inbox_name, unicode)):
             raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
@@ -80,7 +80,7 @@ class ReadMessagesRequest(Gs2UserRequest):
         :param message_ids: カンマ区切りの開封するメッセージのメッセージIDリスト
         :type message_ids: unicode
         """
-        if message_ids and not isinstance(message_ids, unicode):
+        if _message_ids and not (isinstance(_message_ids, str) or isinstance(_message_ids, unicode)):
             raise TypeError(type(message_ids))
         self.__message_ids = message_ids
 

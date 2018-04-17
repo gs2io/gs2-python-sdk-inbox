@@ -61,7 +61,7 @@ class SendMessageRequest(Gs2BasicRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
-        if inbox_name and not isinstance(inbox_name, unicode):
+        if inbox_name and not (isinstance(inbox_name, str) or isinstance(inbox_name, unicode)):
             raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
@@ -90,7 +90,7 @@ class SendMessageRequest(Gs2BasicRequest):
         :param user_id: メッセージを送信する相手のユーザID
         :type user_id: unicode
         """
-        if user_id and not isinstance(user_id, unicode):
+        if user_id and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
             raise TypeError(type(user_id))
         self.__user_id = user_id
 
@@ -119,7 +119,7 @@ class SendMessageRequest(Gs2BasicRequest):
         :param message: 送信するメッセージ本文
         :type message: unicode
         """
-        if message and not isinstance(message, unicode):
+        if message and not (isinstance(message, str) or isinstance(message, unicode)):
             raise TypeError(type(message))
         self.__message = message
 
