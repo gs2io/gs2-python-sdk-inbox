@@ -33,7 +33,6 @@ class ReadMessagesResult(object):
             )
         )
         self.__cooperation_response = unicode(response['cooperationResponse']) if 'cooperationResponse' in response.keys() and response['cooperationResponse'] is not None else None
-
     def get_items(self):
         """
         メッセージを取得
@@ -41,7 +40,6 @@ class ReadMessagesResult(object):
         :rtype: list[Message]
         """
         return self.__items
-
     def get_cooperation_response(self):
         """
         開封通知のレスポンス内容を取得
@@ -49,6 +47,12 @@ class ReadMessagesResult(object):
         :rtype: unicode
         """
         return self.__cooperation_response
+
+    def __getitem__(self, key):
+        items = self.to_dict()
+        if key in items.keys():
+            return items[key]
+        return super(ReadMessagesResult, self).__getitem__(key)
 
     def to_dict(self):
         """
