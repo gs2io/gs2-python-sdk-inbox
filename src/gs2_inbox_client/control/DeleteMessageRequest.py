@@ -14,11 +14,11 @@
 # express or implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
-from gs2_core_client.Gs2UserRequest import Gs2UserRequest
+from gs2_core_client.Gs2BasicRequest import Gs2BasicRequest
 from gs2_inbox_client.Gs2Inbox import Gs2Inbox
 
 
-class DeleteMessageRequest(Gs2UserRequest):
+class DeleteMessageRequest(Gs2BasicRequest):
 
     class Constant(Gs2Inbox):
         FUNCTION = "DeleteMessage"
@@ -32,9 +32,11 @@ class DeleteMessageRequest(Gs2UserRequest):
         super(DeleteMessageRequest, self).__init__(params)
         if params is None:
             self.__inbox_name = None
-            self.__message_id = None
         else:
             self.set_inbox_name(params['inboxName'] if 'inboxName' in params.keys() else None)
+        if params is None:
+            self.__message_id = None
+        else:
             self.set_message_id(params['messageId'] if 'messageId' in params.keys() else None)
 
     def get_inbox_name(self):
