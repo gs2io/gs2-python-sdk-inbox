@@ -263,7 +263,6 @@ class Gs2InboxClient(AbstractGs2Client):
         """
         query_strings = {}
         headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
@@ -290,7 +289,6 @@ class Gs2InboxClient(AbstractGs2Client):
             'messageIds': request.get_message_ids(),
 }
         headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
         }
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
