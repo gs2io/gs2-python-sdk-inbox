@@ -49,7 +49,7 @@ class DeleteInboxRequest(Gs2BasicRequest):
         :param inbox_name: 受信ボックスの名前を指定します。
         :type inbox_name: unicode
         """
-        if inbox_name and not (isinstance(inbox_name, str) or isinstance(inbox_name, unicode)):
+        if inbox_name is not None and not (isinstance(inbox_name, str) or isinstance(inbox_name, unicode)):
             raise TypeError(type(inbox_name))
         self.__inbox_name = inbox_name
 
