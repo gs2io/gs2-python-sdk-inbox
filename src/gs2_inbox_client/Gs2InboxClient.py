@@ -277,7 +277,7 @@ class Gs2InboxClient(AbstractGs2Client):
         """
         query_strings = {}
         if request.get_message_ids() is not None:
-            query_strings['messageIds'] = request.get_message_ids()
+            query_strings['messageIds'] = u','.join(request.get_message_ids())
         headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()

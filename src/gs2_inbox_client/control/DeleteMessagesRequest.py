@@ -72,7 +72,7 @@ class DeleteMessagesRequest(Gs2BasicRequest):
         """
         削除するメッセージのメッセージIDのリストを指定します。を取得
         :return: 削除するメッセージのメッセージIDのリストを指定します。
-        :rtype: unicode
+        :rtype: list[unicode]
         """
         return self.__message_ids
 
@@ -80,9 +80,9 @@ class DeleteMessagesRequest(Gs2BasicRequest):
         """
         削除するメッセージのメッセージIDのリストを指定します。を設定
         :param message_ids: 削除するメッセージのメッセージIDのリストを指定します。
-        :type message_ids: unicode
+        :type message_ids: list[unicode]
         """
-        if message_ids is not None and not (isinstance(message_ids, str) or isinstance(message_ids, unicode)):
+        if message_ids is not None and not isinstance(message_ids, list):
             raise TypeError(type(message_ids))
         self.__message_ids = message_ids
 
@@ -90,7 +90,7 @@ class DeleteMessagesRequest(Gs2BasicRequest):
         """
         削除するメッセージのメッセージIDのリストを指定します。を設定
         :param message_ids: 削除するメッセージのメッセージIDのリストを指定します。
-        :type message_ids: unicode
+        :type message_ids: list[unicode]
         :return: this
         :rtype: DeleteMessagesRequest
         """

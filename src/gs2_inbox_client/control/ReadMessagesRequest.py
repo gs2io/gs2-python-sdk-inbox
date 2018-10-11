@@ -68,27 +68,27 @@ class ReadMessagesRequest(Gs2UserRequest):
 
     def get_message_ids(self):
         """
-        カンマ区切りの開封するメッセージのメッセージIDリストを取得
-        :return: カンマ区切りの開封するメッセージのメッセージIDリスト
-        :rtype: unicode
+        開封するメッセージのメッセージIDリストを取得
+        :return: 開封するメッセージのメッセージIDリスト
+        :rtype: list[unicode]
         """
         return self.__message_ids
 
     def set_message_ids(self, message_ids):
         """
-        カンマ区切りの開封するメッセージのメッセージIDリストを設定
-        :param message_ids: カンマ区切りの開封するメッセージのメッセージIDリスト
-        :type message_ids: unicode
+        開封するメッセージのメッセージIDリストを設定
+        :param message_ids: 開封するメッセージのメッセージIDリスト
+        :type message_ids: list[unicode]
         """
-        if message_ids is not None and not (isinstance(message_ids, str) or isinstance(message_ids, unicode)):
+        if message_ids is not None and not isinstance(message_ids, list):
             raise TypeError(type(message_ids))
         self.__message_ids = message_ids
 
     def with_message_ids(self, message_ids):
         """
-        カンマ区切りの開封するメッセージのメッセージIDリストを設定
-        :param message_ids: カンマ区切りの開封するメッセージのメッセージIDリスト
-        :type message_ids: unicode
+        開封するメッセージのメッセージIDリストを設定
+        :param message_ids: 開封するメッセージのメッセージIDリスト
+        :type message_ids: list[unicode]
         :return: this
         :rtype: ReadMessagesRequest
         """
